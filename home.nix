@@ -15,6 +15,7 @@ in
 
   # Import Program Configurations
   imports = [
+    ./i3.nix
     
   ];
   programs.git = {

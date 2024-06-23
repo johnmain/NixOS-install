@@ -98,15 +98,15 @@
           ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --off --output DP-1 --primary --mode 1920x1080 --pos 1920x1080 --rotate normal --output DP-2 --off --output DP-3 --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-4 --off --output DP-5 --mode 1920x1080 --pos 0x0 --rotate normal
         '';
       };
-      windowManager.i3 = {
-        package = pkgs.i3-gaps;
-        enable = true;
-        extraPackages = with pkgs; [
-          i3status
-          i3lock
-          i3blocks
-        ];
-      };
+      # windowManager.i3 = {
+      #   package = pkgs.i3-gaps;
+      #   enable = true;
+      #   extraPackages = with pkgs; [
+      #     i3status
+      #     i3lock
+      #     i3blocks
+      #   ];
+      # };
     }; 
     displayManager = {
       defaultSession = "none+i3";
@@ -321,8 +321,6 @@
         "nix-command"
         "flakes"
       ];
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     gc = {
       automatic = true;
