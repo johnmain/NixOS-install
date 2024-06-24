@@ -15,50 +15,76 @@
 
     config = rec {
       modifier = "Mod4";
-      bars = [ ];
+      bars = [
+        {
+          position = "top";
+          trayOutput = "primary";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3/config.toml";
+          fonts = {
+            names = [" pango:Fira Code Regular" "FontAwesome5Free" ];
+            size = 10.0;
+          };
+          extraConfig =  "
+          height 14
+          padding 5px 0 0 0";
 
-      window.border = 0;
+        }
+      ];
+
+      window = {
+        border = 1;
+        titlebar = false;
+      };
 
       gaps = {
         inner = 10;
-        smart_gaps on
-        
+        smartGaps = true;
       };
 
-    keybindings = lib.mkOptionDefault {
-      "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
-      "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -modi drun -show drun -show-icons";
-      
-      "${modifier}+b" = "exec ${pkgs.brave}/bin/brave";
-      "${modifier}+Shift+x" = "exec systemctl suspend";
-      "${modifier}+Shift+Return" = "exec thunar";
-      "Ctrl+Mod1+f" = "exec floorp";
-      "Ctrl+Mod1+g" = "exec floorp --private-window";
-      "Ctrl+Mod1+d" = "exec discord";
-      "Ctrl+Mod1+e" = "exec code";
-      "mode = "Exit (L)ogout, (R)eboot, (P)oweroff" {
-        "r" = "exec systemctl reboot";
-        "l" = "exit";
-        "p" = "exec systemctl poweroff";
-      }";
-      "${modifier}+Shift+e" = "exec mode "Exit (L)ogout, (R)eboot, (P)oweroff'";
-      "Return" = "Return mode 'default'";
-      "Escape" = "Escape mode 'default'";
-    };
+      workspaceOutputAssign = [
+        {
+          workspace = "1";
+          output = "DP-1";
+        }
+        {
+          workspace = "2";
+          output = "HDMI-0";
+        }
+        {
+          workspace = "3";
+          output = "DP-5";
+        }
+        {
+          workspace = "4";
+          output = "DP-3";
+        }
+      ];
+
+      fonts = {
+        names = [ "pango:Fira Code" ];
+        style = "Regular";
+        size = 8.0;
+      };
+
+      keybindings = lib.mkOptionDefault {
+        "${modifier}+q" = "kill";
+        "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -modi drun -show drun -show-icons";
+        "${modifier}+Shift+Return" = "exec thunar";
+        "Ctrl+Mod1+f" = "exec floorp";
+        "Ctrl+Mod1+g" = "exec floorp --private-window";
+        "Ctrl+Mod1+d" = "exec discord";
+        "Ctrl+Mod1+e" = "exec code";
+      };
 
       startup = [
         {
-          command = "exec i3-msg workspace 1";
+          command = "autotiling";
           always = true;
           notification = false;
         }
         {
-          command = "systemctl --user restart polybar.service";
-          always = true;
-          notification = false;
-        }
-        {
-          command = "${pkgs.feh}/bin/feh --bg-scale ~/background.png";
+          command = "nitrogen --restore";
           always = true;
           notification = false;
         }

@@ -98,19 +98,12 @@
           ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --off --output DP-1 --primary --mode 1920x1080 --pos 1920x1080 --rotate normal --output DP-2 --off --output DP-3 --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-4 --off --output DP-5 --mode 1920x1080 --pos 0x0 --rotate normal
         '';
       };
-      # windowManager.i3 = {
-      #   package = pkgs.i3-gaps;
-      #   enable = true;
-      #   extraPackages = with pkgs; [
-      #     i3status
-      #     i3lock
-      #     i3blocks
-      #   ];
-      # };
+      windowManager.i3 = {
+	package = pkgs.i3-gaps;
+	enable = true;
+      };
     }; 
-    displayManager = {
-      defaultSession = "none+i3";
-    };
+    
     libinput.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
