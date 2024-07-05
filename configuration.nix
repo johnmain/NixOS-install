@@ -17,7 +17,12 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.supportedFilesystems = [ "ntfs" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 2147483642;
+  };
+
 
   networking.hostName = "frankenix"; # Define your hostname.
   networking.firewall.enable = false;
@@ -99,8 +104,8 @@
         '';
       };
       windowManager.i3 = {
-	package = pkgs.i3-gaps;
-	enable = true;
+        package = pkgs.i3-gaps;
+        enable = true;
       };
     }; 
     
@@ -240,6 +245,7 @@
     hugo
     i3status-rust
     imv
+    jellyfin-media-player
     killall
     kitty
     libnotify
@@ -267,6 +273,7 @@
     vscode
     wget
     xfce.ristretto
+    xfce.tumbler
     xorg.xrandr
     yad
     ydotool
@@ -297,6 +304,14 @@
     fuse.userAllowOther = true;
     mtr.enable = true;
     virt-manager.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gamemode.enable = true;
+
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
@@ -324,13 +339,6 @@
 
   # Virtualization / Containers
   virtualisation.libvirtd.enable = true;
-
-  # OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
