@@ -236,11 +236,10 @@
     eza
     fastfetch
     ffmpeg
+    file-roller
     floorp
     geany
     git
-    gnome.file-roller
-    gnome.simple-scan
     greetd.tuigreet
     hugo
     i3status-rust
@@ -265,6 +264,7 @@
     qemu_kvm
     rofi
     shutter
+    simple-scan
     socat
     tree
     unrar

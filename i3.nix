@@ -75,6 +75,7 @@
         "Ctrl+Mod1+g" = "exec floorp --private-window";
         "Ctrl+Mod1+d" = "exec discord";
         "Ctrl+Mod1+e" = "exec code";
+        "${modifier}+Shift+e" = ''mode "(L)ogout, (R)eboot, (P)oweroff"'';
       };
 
       startup = [
@@ -89,6 +90,19 @@
           notification = false;
         }
       ];
+      
     };
+    extraConfig = ''
+        mode "(L)ogout, (R)eboot, (P)oweroff" {
+        bindsym r exec --no-startup-id systemctl reboot
+        bindsym l exit
+        bindsym p exec --no-startup-id systemctl poweroff
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+      }
+      '';
+      
   };
 }
