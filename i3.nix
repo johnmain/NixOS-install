@@ -24,9 +24,10 @@
             names = [" pango:Fira Code Regular" "FontAwesome5Free" ];
             size = 10.0;
           };
-          extraConfig =  "
+          extraConfig = "
           height 14
-          padding 5px 0 0 0";
+          padding 5px 0 0 0
+          ";
 
         }
       ];
@@ -40,7 +41,7 @@
         inner = 10;
         smartGaps = true;
       };
-
+      
       workspaceOutputAssign = [
         {
           workspace = "1";
@@ -97,11 +98,10 @@
         bindsym r exec --no-startup-id systemctl reboot
         bindsym l exit
         bindsym p exec --no-startup-id systemctl poweroff
-
-        # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
       }
+      hide_edge_borders smart_no_gaps
       '';
       
   };
