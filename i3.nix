@@ -35,6 +35,7 @@
       window = {
         border = 1;
         titlebar = false;
+        hideEdgeBorders = "smart";
       };
 
       gaps = {
@@ -101,7 +102,6 @@
         bindsym Return mode "default"
         bindsym Escape mode "default"
       }
-      hide_edge_borders smart_no_gaps
       '';
       
   };
