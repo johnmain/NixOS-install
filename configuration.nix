@@ -216,7 +216,7 @@
   users.users.jmain = {
     isNormalUser = true;
     description = "John Main";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "libvirtd"];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "libvirtd" "gamemode"];
     shell = pkgs.fish;
     packages = with pkgs; [];
   };
