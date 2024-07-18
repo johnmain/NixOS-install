@@ -107,6 +107,7 @@
         package = pkgs.i3-gaps;
         enable = true;
       };
+      windowManager.bspwm.enable = true;
     }; 
     
     libinput.enable = true;
@@ -210,8 +211,6 @@
     '';
   };
 
-
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jmain = {
     isNormalUser = true;
@@ -230,6 +229,7 @@
     arandr
     autotiling
     bat
+    bc
     btop
     discord
     duf
@@ -238,6 +238,8 @@
     ffmpeg
     file-roller
     floorp
+    font-manager
+    galculator
     geany
     git
     greetd.tuigreet
@@ -245,6 +247,7 @@
     i3status-rust
     imv
     jellyfin-media-player
+    jq
     killall
     kitty
     libnotify
@@ -266,6 +269,7 @@
     shutter
     simple-scan
     socat
+    speedtest-rs
     tree
     unrar
     unzip
@@ -273,9 +277,11 @@
     vscode
     gfxreconstruct
     glslang
+    polybarFull
     spirv-cross
     spirv-headers
     spirv-tools
+    sxhkd
     vulkan-extension-layer
     vulkan-headers
     vulkan-loader
@@ -289,20 +295,26 @@
     vk-bootstrap
     wget
     xfce.ristretto
+    xfce.xfce4-screenshooter
     xfce.tumbler
     xorg.xrandr
     yad
     ydotool
   ];
-
+  fonts.fontconfig.allowBitmaps = true;
+  fonts.fontconfig.useEmbeddedBitmaps = true;
+  fonts.fontDir.enable = true;
   fonts = {
     packages = with pkgs; [
       noto-fonts-emoji
       noto-fonts-cjk
       font-awesome
+      siji
+      jetbrains-mono
       symbola
       material-icons
       fira-code
+      nerdfonts
     ];
   };
  
