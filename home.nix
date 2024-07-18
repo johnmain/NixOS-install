@@ -75,7 +75,7 @@ in
       enable = true;
       shellAliases = {
         cat = "bat";
-        ls = "exa -la --icons --grid --group-directories-first";
+        ls = "exa -la --icons --group-directories-first";
       };
       shellInitLast = ''
       fastfetch
