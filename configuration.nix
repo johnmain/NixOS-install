@@ -18,7 +18,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelModules = [ "tcp_bbr" ];
   boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
   boot.kernel.sysctl."net.core.default_qdisc" = "fq";
@@ -64,10 +64,12 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal
+      pkgs.xdg-desktop-portal-shana
     ];
     configPackages = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal
+      pkgs.xdg-desktop-portal-shana
     ];
   };
   environment.sessionVariables = rec {
@@ -225,6 +227,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.rocmSupport = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -245,6 +248,7 @@
     galculator
     geany
     git
+    gnome-disk-utility
     greetd.tuigreet
     hugo
     i3status-rust
@@ -302,6 +306,7 @@
     xfce.tumbler
     xorg.xrandr
     yad
+    zed-editor
     ydotool
   ];
   fonts.fontconfig.allowBitmaps = true;
