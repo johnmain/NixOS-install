@@ -250,10 +250,13 @@
     git
     gnome-disk-utility
     greetd.tuigreet
+    handbrake
     hugo
     i3status-rust
     imv
     jellyfin-media-player
+    jdk
+    libmkv
     jq
     killall
     kitty
