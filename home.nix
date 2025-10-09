@@ -52,7 +52,7 @@ in
 
   gtk = {
     theme = {
-      name = "Sweet-Dark-v40";
+      name = "Sweet";
     };
     iconTheme = {
       name = "BeautyLine";

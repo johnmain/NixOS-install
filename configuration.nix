@@ -236,6 +236,7 @@
     autotiling
     bat
     bc
+    beauty-line-icon-theme
     btop
     discord
     duf
@@ -249,7 +250,6 @@
     geany
     git
     gnome-disk-utility
-    greetd.tuigreet
     handbrake
     hugo
     i3status-rust
@@ -280,6 +280,7 @@
     simple-scan
     socat
     speedtest-rs
+    sweet
     tree
     unrar
     unzip
